@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ආයෝජන සහ FD ගණක යන්ත්‍රය | Investment & FD Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Top Navigation / Back Button -->
+        <nav class="top-nav">
+            <a href="phase5.html" class="back-btn">
+                <span class="btn-icon">←</span>
+                <span class="btn-text">ආපසු (Back)</span>
+            </a>
+        </nav>
+
+        <!-- Main Header -->
+        <header class="main-header">
+            <span class="header-badge"> Smart Financial Planner 📊</span>
+            <h1>ආයෝජන සහ FD ගණක යන්ත්‍රය</h1>
+            <p>ඔබගේ ස්ථාවර තැන්පතු (FD), Unit Trust / Money Market අරමුදල් සහ අනාගත මුල්‍ය ඉලක්ක පහසුවෙන් ගණනය කරගන්න.</p>
+        </header>
+
+        <!-- Calculator Tabs -->
+        <div class="calculator-tabs">
+            <button class="tab-btn active" onclick="switchTab('fd-tab')">
+                <span class="tab-icon">🏦</span>
+                <span>FD / ස්ථාවර තැන්පතු</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('fund-tab')">
+                <span class="tab-icon">📈</span>
+                <span>Money Market / compounding</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('goal-tab')">
+                <span class="tab-icon">🎯</span>
+                <span>ඉලක්කගත ආයෝජන (Goal)</span>
+            </button>
+        </div>
+
+        <!-- ==================== TAB 1: FD CALCULATOR ==================== -->
+        <div id="fd-tab" class="tab-content active">
+            <div class="calc-grid">
+                <!-- Inputs Section -->
+                <div class="calc-card inputs-card">
+                    <div class="card-title">
+                        <h3>FD තොරතුරු ඇතුළත් කරන්න</h3>
+                    </div>
+
+                    <!-- Preset Quick Buttons -->
+                    <div class="preset-group">
+                        <label class="input-label">ඉක්මන් මුදල් තේරීම්:</label>
+                        <div class="preset-buttons">
+                            <button class="chip-btn" onclick="setFdAmount(100000)">රු. 100,000</button>
+                            <button class="chip-btn" onclick="setFdAmount(500000)">රු. 500,000</button>
+                            <button class="chip-btn" onclick="setFdAmount(1000000)">රු. ලක්ෂ 10</button>
+                            <button class="chip-btn" onclick="setFdAmount(2500000)">රු. ලක්ෂ 25</button>
+                        </div>
+                    </div>
+
+                    <!-- Principal Amount Input -->
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="fd-amount">තැන්පතු මුදල (Principal Amount):</label>
+                            <span class="val-display" id="fd-amount-val">රු. 500,000</span>
+                        </div>
+                        <input type="range" id="fd-amount-slider" min="10000" max="10000000" step="10000" value="500000" oninput="syncFdAmount(this.value)">
+                        <div class="number-input-wrapper">
+                            <span class="currency-symbol">රු.</span>
+                            <input type="number" id="fd-amount" value="500000" step="5000" oninput="syncFdSlider(this.value)">
+                        </div>
+                    </div>
+
+                    <!-- Interest Rate Input -->
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="fd-rate">වාර්ෂික පොලී අනුපාතිකය (Annual Interest Rate %):</label>
+                            <span class="val-display" id="fd-rate-val">10.5 %</span>
+                        </div>
+                        <input type="range" id="fd-rate-slider" min="1" max="25" step="0.25" value="10.5" oninput="syncFdRate(this.value)">
+                        <div class="number-input-wrapper">
+                            <input type="number" id="fd-rate" value="10.5" step="0.1" oninput="syncFdRateSlider(this.value)">
+                            <span class="currency-symbol">%</span>
+                        </div>
+                    </div>
+
+                    <!-- Duration Input -->
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="fd-months">තැන්පතු කාලය (Months):</label>
+                            <span class="val-display" id="fd-months-val">12 මාසයයි (අවුරුදු 1)</span>
+                        </div>
+                        <input type="range" id="fd-months-slider" min="1" max="60" step="1" value="12" oninput="syncFdMonths(this.value)">
+                        <div class="number-input-wrapper">
+                            <input type="number" id="fd-months" value="12" min="1" max="120" oninput="syncFdMonthsSlider(this.value)">
+                            <span class="currency-symbol">මාස</span>
+                        </div>
+                    </div>
+
+                    <!-- Payout Frequency Dropdown -->
+                    <div class="input-group">
+                        <label for="fd-payout" class="input-label">පොලිය ලබාගන්නා ආකාරය (Payout Frequency):</label>
+                        <select id="fd-payout" class="styled-select" onchange="calculateFD()">
+                            <option value="maturity">කාලය අවසානයේ (At Maturity)</option>
+                            <option value="monthly">මාසිකව (Monthly Payout)</option>
+                            <option value="quarterly">කාර්තුමය (Quarterly Payout)</option>
+                            <option value="annually">වාර්ෂිකව (Annually)</option>
+                        </select>
+                    </div>
+
+                    <!-- Tax WHT Option -->
+                    <div class="input-group">
+                        <label for="fd-tax" class="input-label">රඳවාගැනීමේ බද්ද (Withholding Tax - WHT):</label>
+                        <select id="fd-tax" class="styled-select" onchange="calculateFD()">
+                            <option value="5">5% (සාමාන්‍ය WHT බද්ද)</option>
+                            <option value="0">0% (බදු රහිත)</option>
+                            <option value="10">10% WHT</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- Results Section -->
+                <div class="calc-card results-card">
+                    <div class="card-title">
+                        <h3>ගණනය කළ ප්‍රතිඵල</h3>
+                    </div>
+
+                    <!-- Highlights Banner -->
+                    <div class="result-highlight-box">
+                        <span class="highlight-label">කාලය අවසානයේ ලැබෙන මුළු මුදල (Maturity Amount)</span>
+                        <h2 class="highlight-value" id="fd-res-maturity">රු. 549,875</h2>
+                    </div>
+
+                    <!-- Detailed Stat Rows -->
+                    <div class="stat-list">
+                        <div class="stat-row">
+                            <span class="stat-label">ආරම්භක තැන්පතුව (Principal)</span>
+                            <span class="stat-val" id="fd-res-principal">රු. 500,000</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">මුළු දූෂිත/දළ පොලිය (Gross Interest)</span>
+                            <span class="stat-val positive" id="fd-res-gross">රු. 52,500</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">අයවන WHT බද්ද (Tax Deducted)</span>
+                            <span class="stat-val negative" id="fd-res-tax">- රු. 2,625</span>
+                        </div>
+                        <div class="stat-row highlight-row">
+                            <span class="stat-label">තමන්ට හිමි ශුද්ධ පොලිය (Net Interest)</span>
+                            <span class="stat-val bold-green" id="fd-res-net-interest">රු. 49,875</span>
+                        </div>
+                        <div class="stat-row monthly-payout-row" id="fd-monthly-payout-box" style="display:none;">
+                            <span class="stat-label">මාසිකව අතට ලැබෙන පොලිය (Monthly Income)</span>
+                            <span class="stat-val badge-green" id="fd-res-monthly">රු. 4,156 / මසකට</span>
+                        </div>
+                    </div>
+
+                    <!-- Visual Progress Bar -->
+                    <div class="visual-breakdown">
+                        <div class="breakdown-labels">
+                            <span>තැන්පතුව (<span id="fd-principal-pct">91%</span>)</span>
+                            <span>ශුද්ධ ලාභය (<span id="fd-interest-pct">9%</span>)</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill principal-fill" id="fd-bar-principal" style="width: 91%;"></div>
+                            <div class="progress-bar-fill interest-fill" id="fd-bar-interest" style="width: 9%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="info-note">
+                        💡 <strong>සටහන:</strong> මෙම ගණනය කිරීම් ශ්‍රී ලංකාවේ බැංකු වල පවත්නා සාමාන්‍ය FD ක්‍රමවේද අනුව සකස් කර ඇත.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ==================== TAB 2: MONEY MARKET / COMPOUNDING ==================== -->
+        <div id="fund-tab" class="tab-content">
+            <div class="calc-grid">
+                <!-- Inputs Section -->
+                <div class="calc-card inputs-card">
+                    <div class="card-title">
+                        <h3>අරමුදල් තොරතුරු ඇතුළත් කරන්න</h3>
+                    </div>
+
+                    <!-- Initial Investment -->
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="fund-initial">ආරම්භක ආයෝජනය (Lump Sum / Initial):</label>
+                            <span class="val-display" id="fund-initial-val">රු. 100,000</span>
+                        </div>
+                        <input type="range" id="fund-initial-slider" min="0" max="2000000" step="10000" value="100000" oninput="syncFundInitial(this.value)">
+                        <div class="number-input-wrapper">
+                            <span class="currency-symbol">රු.</span>
+                            <input type="number" id="fund-initial" value="100000" step="5000" oninput="syncFundInitialSlider(this.value)">
+                        </div>
+                    </div>
+
+                    <!-- Monthly Contribution -->
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="fund-monthly">මාසිකව තැන්පත් කරන මුදල (Monthly SIP):</label>
+                            <span class="val-display" id="fund-monthly-val">රු. 15,000</span>
+                        </div>
+                        <input type="range" id="fund-monthly-slider" min="0" max="200000" step="1000" value="15000" oninput="syncFundMonthly(this.value)">
+                        <div class="number-input-wrapper">
+                            <span class="currency-symbol">රු.</span>
+                            <input type="number" id="fund-monthly" value="15000" step="1000" oninput="syncFundMonthlySlider(this.value)">
+                        </div>
+                    </div>
+
+                    <!-- Return Rate -->
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="fund-rate">බලාපොරොත්තු වන වාර්ෂික ප්‍රතිලාභය (Expected Annual Return %):</label>
+                            <span class="val-display" id="fund-rate-val">12 %</span>
+                        </div>
+                        <input type="range" id="fund-rate-slider" min="1" max="30" step="0.5" value="12" oninput="syncFundRate(this.value)">
+                        <div class="number-input-wrapper">
+                            <input type="number" id="fund-rate" value="12" step="0.5" oninput="syncFundRateSlider(this.value)">
+                            <span class="currency-symbol">%</span>
+                        </div>
+                    </div>
+
+                    <!-- Duration Years -->
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="fund-years">ආයෝජන කාලය (Years):</label>
+                            <span class="val-display" id="fund-years-val">5 අවුරුදු</span>
+                        </div>
+                        <input type="range" id="fund-years-slider" min="1" max="30" step="1" value="5" oninput="syncFundYears(this.value)">
+                        <div class="number-input-wrapper">
+                            <input type="number" id="fund-years" value="5" min="1" max="40" oninput="syncFundYearsSlider(this.value)">
+                            <span class="currency-symbol">අවුරුදු</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Results Section -->
+                <div class="calc-card results-card">
+                    <div class="card-title">
+                        <h3>වැඩෙන අරමුදලේ ප්‍රක්ෂේපණය</h3>
+                    </div>
+
+                    <div class="result-highlight-box blue-gradient">
+                        <span class="highlight-label">අනාගත මුළු වටිනාකම (Future Portfolio Value)</span>
+                        <h2 class="highlight-value" id="fund-res-total">රු. 1,326,900</h2>
+                    </div>
+
+                    <div class="stat-list">
+                        <div class="stat-row">
+                            <span class="stat-label">ඔබ යෙදවූ මුළු මුදල (Total Invested)</span>
+                            <span class="stat-val" id="fund-res-invested">රු. 1,000,000</span>
+                        </div>
+                        <div class="stat-row highlight-row">
+                            <span class="stat-label">ක්‍රමිකව ලැබුණු පොලී ලාභය (Compound Wealth Gained)</span>
+                            <span class="stat-val bold-green" id="fund-res-profit">රු. 326,900</span>
+                        </div>
+                    </div>
+
+                    <div class="visual-breakdown">
+                        <div class="breakdown-labels">
+                            <span>ඔබගේ ආයෝජනය (<span id="fund-inv-pct">75%</span>)</span>
+                            <span>චක්‍රීය ලාභය (<span id="fund-profit-pct">25%</span>)</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill principal-fill" id="fund-bar-inv" style="width: 75%;"></div>
+                            <div class="progress-bar-fill interest-fill" id="fund-bar-profit" style="width: 25%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Year by Year Toggle Table -->
+                    <div class="table-toggle-section">
+                        <button class="secondary-btn" onclick="toggleFundTable()">
+                            <span id="table-btn-text">📅 අවුරුද්දෙන් අවුරුද්ද වර්ධනය බලන්න</span>
+                        </button>
+                        <div id="fund-table-wrapper" class="table-container" style="display: none;">
+                            <table class="data-table">
+                               <thead>
+                                   <tr>
+                                       <th>වසර</th>
+                                       <th>තැන්පත් කළ මුළු මුදල</th>
+                                       <th>ලැබුණු පොලිය</th>
+                                       <th>වසර අග වටිනාකම</th>
+                                   </tr>
+                               </thead>
+                               <tbody id="fund-table-body">
+                                   <!-- JS Dynamic Insertion -->
+                               </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ==================== TAB 3: GOAL CALCULATOR ==================== -->
+        <div id="goal-tab" class="tab-content">
+            <div class="calc-grid">
+                <!-- Inputs Section -->
+                <div class="calc-card inputs-card">
+                    <div class="card-title">
+                        <h3>ඔබගේ මුල්‍ය ඉලක්කය ඇතුළත් කරන්න</h3>
+                    </div>
+
+                    <!-- Target Goal Amount -->
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="goal-amount">ලඟා කරගත යුතු ඉලක්කගත මුදල (Target Amount):</label>
+                            <span class="val-display" id="goal-amount-val">රු. 5,000,000</span>
+                        </div>
+                        <input type="range" id="goal-amount-slider" min="100000" max="20000000" step="100000" value="5000000" oninput="syncGoalAmount(this.value)">
+                        <div class="number-input-wrapper">
+                            <span class="currency-symbol">රු.</span>
+                            <input type="number" id="goal-amount" value="5000000" step="50000" oninput="syncGoalAmountSlider(this.value)">
+                        </div>
+                    </div>
+
+                    <!-- Timeframe Years -->
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="goal-years">ඉලක්කයට ඇති කාලය (Years):</label>
+                            <span class="val-display" id="goal-years-val">5 අවුරුදු</span>
+                        </div>
+                        <input type="range" id="goal-years-slider" min="1" max="25" step="1" value="5" oninput="syncGoalYears(this.value)">
+                        <div class="number-input-wrapper">
+                            <input type="number" id="goal-years" value="5" min="1" max="30" oninput="syncGoalYearsSlider(this.value)">
+                            <span class="currency-symbol">අවුරුදු</span>
+                        </div>
+                    </div>
+
+                    <!-- Expected Return Rate -->
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="goal-rate">ආයෝජනයේ වාර්ෂික පොලී % (Annual Return %):</label>
+                            <span class="val-display" id="goal-rate-val">11 %</span>
+                        </div>
+                        <input type="range" id="goal-rate-slider" min="1" max="25" step="0.5" value="11" oninput="syncGoalRate(this.value)">
+                        <div class="number-input-wrapper">
+                            <input type="number" id="goal-rate" value="11" step="0.5" oninput="syncGoalRateSlider(this.value)">
+                            <span class="currency-symbol">%</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Results Section -->
+                <div class="calc-card results-card">
+                    <div class="card-title">
+                        <h3>අවශ්‍ය මාසික ආයෝජනය</h3>
+                    </div>
+
+                    <div class="result-highlight-box green-gradient">
+                        <span class="highlight-label">සෑම මසකම තැන්පත් කළ යුතු මුදල</span>
+                        <h2 class="highlight-value" id="goal-res-monthly">රු. 62,140 / මසකට</h2>
+                    </div>
+
+                    <div class="stat-list">
+                        <div class="stat-row">
+                            <span class="stat-label">ඔබගේ මුළු ඉලක්කය (Target Amount)</span>
+                            <span class="stat-val" id="goal-res-target">රු. 5,000,000</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">ඔබේ අතින් යන මුළු මුදල (Your Total Deposit)</span>
+                            <span class="stat-val" id="goal-res-your-deposit">රු. 3,728,400</span>
+                        </div>
+                        <div class="stat-row highlight-row">
+                            <span class="stat-label">අරමුදලෙන් ලැබෙන පොලී සහාය (Interest Earned)</span>
+                            <span class="stat-val bold-green" id="goal-res-interest">රු. 1,271,600</span>
+                        </div>
+                    </div>
+
+                    <div class="info-note success-note">
+                        🚀 <strong>උපදෙස:</strong> Money Market Fund එකක හෝ Compounding Unit Trust එකක දාන විට මෙම ඉලක්කය වඩාත් පහසුවෙන් සපුරාගත හැක!
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Currency Formatter
+        function formatLKR(amount) {
+            return 'රු. ' + Math.round(amount).toLocaleString('en-US');
+        }
+
+        // Tab Switching
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // --- FD CALCULATOR LOGIC ---
+        function setFdAmount(val) {
+            document.getElementById('fd-amount').value = val;
+            document.getElementById('fd-amount-slider').value = val;
+            calculateFD();
+        }
+
+        function syncFdAmount(val) {
+            document.getElementById('fd-amount').value = val;
+            calculateFD();
+        }
+
+        function syncFdSlider(val) {
+            document.getElementById('fd-amount-slider').value = val;
+            calculateFD();
+        }
+
+        function syncFdRate(val) {
+            document.getElementById('fd-rate').value = val;
+            calculateFD();
+        }
+
+        function syncFdRateSlider(val) {
+            document.getElementById('fd-rate-slider').value = val;
+            calculateFD();
+        }
+
+        function syncFdMonths(val) {
+            document.getElementById('fd-months').value = val;
+            calculateFD();
+        }
+
+        function syncFdMonthsSlider(val) {
+            document.getElementById('fd-months-slider').value = val;
+            calculateFD();
+        }
+
+        function calculateFD() {
+            let P = parseFloat(document.getElementById('fd-amount').value) || 0;
+            let r = (parseFloat(document.getElementById('fd-rate').value) || 0) / 100;
+            let months = parseInt(document.getElementById('fd-months').value) || 1;
+            let payout = document.getElementById('fd-payout').value;
+            let taxPct = (parseFloat(document.getElementById('fd-tax').value) || 0) / 100;
+
+            // Display Labels update
+            document.getElementById('fd-amount-val').innerText = formatLKR(P);
+            document.getElementById('fd-rate-val').innerText = (r * 100).toFixed(2) + ' %';
+            
+            let yrs = (months / 12).toFixed(1);
+            document.getElementById('fd-months-val').innerText = months + ' මාසයයි ' + (months >= 12 ? '(' + (months/12==1?'අවුරුදු 1': 'අවුරුදු ' + (months/12).toFixed(1)) + ')' : '');
+
+            let grossInterest = 0;
+            let monthlyPayoutBox = document.getElementById('fd-monthly-payout-box');
+
+            if (payout === 'monthly') {
+                grossInterest = P * r * (months / 12);
+                monthlyPayoutBox.style.display = 'flex';
+                let grossMonthly = (P * r) / 12;
+                let netMonthly = grossMonthly * (1 - taxPct);
+                document.getElementById('fd-res-monthly').innerText = formatLKR(netMonthly) + ' / මසකට';
+            } else if (payout === 'quarterly') {
+                grossInterest = P * r * (months / 12);
+                monthlyPayoutBox.style.display = 'none';
+            } else if (payout === 'annually') {
+                grossInterest = P * r * (months / 12);
+                monthlyPayoutBox.style.display = 'none';
+            } else {
+                // At Maturity
+                monthlyPayoutBox.style.display = 'none';
+                if (months >= 12 && months % 12 === 0) {
+                    // Compounded annually for multi-year maturity
+                    let years = months / 12;
+                    let maturityGross = P * Math.pow((1 + r), years);
+                    grossInterest = maturityGross - P;
+                } else {
+                    grossInterest = P * r * (months / 12);
+                }
+            }
+
+            let taxAmount = grossInterest * taxPct;
+            let netInterest = grossInterest - taxAmount;
+            let maturityTotal = P + netInterest;
+
+            document.getElementById('fd-res-principal').innerText = formatLKR(P);
+            document.getElementById('fd-res-gross').innerText = formatLKR(grossInterest);
+            document.getElementById('fd-res-tax').innerText = '- ' + formatLKR(taxAmount);
+            document.getElementById('fd-res-net-interest').innerText = formatLKR(netInterest);
+            document.getElementById('fd-res-maturity').innerText = formatLKR(maturityTotal);
+
+            // Progress Bar
+            let principalPct = Math.round((P / maturityTotal) * 100);
+            let interestPct = 100 - principalPct;
+            document.getElementById('fd-principal-pct').innerText = principalPct + '%';
+            document.getElementById('fd-interest-pct').innerText = interestPct + '%';
+            document.getElementById('fd-bar-principal').style.width = principalPct + '%';
+            document.getElementById('fd-bar-interest').style.width = interestPct + '%';
+        }
+
+
+        // --- MONEY MARKET / COMPOUNDING LOGIC ---
+        function syncFundInitial(val) {
+            document.getElementById('fund-initial').value = val;
+            calculateFund();
+        }
+        function syncFundInitialSlider(val) {
+            document.getElementById('fund-initial-slider').value = val;
+            calculateFund();
+        }
+        function syncFundMonthly(val) {
+            document.getElementById('fund-monthly').value = val;
+            calculateFund();
+        }
+        function syncFundMonthlySlider(val) {
+            document.getElementById('fund-monthly-slider').value = val;
+            calculateFund();
+        }
+        function syncFundRate(val) {
+            document.getElementById('fund-rate').value = val;
+            calculateFund();
+        }
+        function syncFundRateSlider(val) {
+            document.getElementById('fund-rate-slider').value = val;
+            calculateFund();
+        }
+        function syncFundYears(val) {
+            document.getElementById('fund-years').value = val;
+            calculateFund();
+        }
+        function syncFundYearsSlider(val) {
+            document.getElementById('fund-years-slider').value = val;
+            calculateFund();
+        }
+
+        function calculateFund() {
+            let initial = parseFloat(document.getElementById('fund-initial').value) || 0;
+            let monthly = parseFloat(document.getElementById('fund-monthly').value) || 0;
+            let rate = (parseFloat(document.getElementById('fund-rate').value) || 0) / 100;
+            let years = parseInt(document.getElementById('fund-years').value) || 1;
+
+            document.getElementById('fund-initial-val').innerText = formatLKR(initial);
+            document.getElementById('fund-monthly-val').innerText = formatLKR(monthly);
+            document.getElementById('fund-rate-val').innerText = (rate * 100).toFixed(1) + ' %';
+            document.getElementById('fund-years-val').innerText = years + ' අවුරුදු';
+
+            let monthlyRate = rate / 12;
+            let totalMonths = years * 12;
+
+            let futureValueInitial = initial * Math.pow(1 + monthlyRate, totalMonths);
+            let futureValueMonthly = 0;
+            if (monthlyRate > 0) {
+                futureValueMonthly = monthly * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
+            } else {
+                futureValueMonthly = monthly * totalMonths;
+            }
+
+            let totalFutureValue = futureValueInitial + futureValueMonthly;
+            let totalInvested = initial + (monthly * totalMonths);
+            let totalProfit = totalFutureValue - totalInvested;
+
+            document.getElementById('fund-res-total').innerText = formatLKR(totalFutureValue);
+            document.getElementById('fund-res-invested').innerText = formatLKR(totalInvested);
+            document.getElementById('fund-res-profit').innerText = formatLKR(totalProfit);
+
+            let invPct = Math.round((totalInvested / totalFutureValue) * 100);
+            let profitPct = 100 - invPct;
+            document.getElementById('fund-inv-pct').innerText = invPct + '%';
+            document.getElementById('fund-profit-pct').innerText = profitPct + '%';
+            document.getElementById('fund-bar-inv').style.width = invPct + '%';
+            document.getElementById('fund-bar-profit').style.width = profitPct + '%';
+
+            // Populate Breakdown Table
+            let tbody = document.getElementById('fund-table-body');
+            tbody.innerHTML = '';
+            
+            let currentBalance = initial;
+            let cumInvested = initial;
+
+            for (let y = 1; y <= years; y++) {
+                for (let m = 1; m <= 12; m++) {
+                    currentBalance = (currentBalance + monthly) * (1 + monthlyRate);
+                    cumInvested += monthly;
+                }
+                let yearlyProfit = currentBalance - cumInvested;
+                let tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>වසර ${y}</strong></td>
+                    <td>${formatLKR(cumInvested)}</td>
+                    <td class="bold-green">${formatLKR(yearlyProfit)}</td>
+                    <td><strong>${formatLKR(currentBalance)}</strong></td>
+                `;
+                tbody.appendChild(tr);
+            }
+        }
+
+        function toggleFundTable() {
+            let wrapper = document.getElementById('fund-table-wrapper');
+            let btnText = document.getElementById('table-btn-text');
+            if (wrapper.style.display === 'none') {
+                wrapper.style.display = 'block';
+                btnText.innerText = '🔼 සඟවන්න (Hide Table)';
+            } else {
+                wrapper.style.display = 'none';
+                btnText.innerText = '📅 අවුරුද්දෙන් අවුරුද්ද වර්ධනය බලන්න';
+            }
+        }
+
+
+        // --- GOAL CALCULATOR LOGIC ---
+        function syncGoalAmount(val) {
+            document.getElementById('goal-amount').value = val;
+            calculateGoal();
+        }
+        function syncGoalAmountSlider(val) {
+            document.getElementById('goal-amount-slider').value = val;
+            calculateGoal();
+        }
+        function syncGoalYears(val) {
+            document.getElementById('goal-years').value = val;
+            calculateGoal();
+        }
+        function syncGoalYearsSlider(val) {
+            document.getElementById('goal-years-slider').value = val;
+            calculateGoal();
+        }
+        function syncGoalRate(val) {
+            document.getElementById('goal-rate').value = val;
+            calculateGoal();
+        }
+        function syncGoalRateSlider(val) {
+            document.getElementById('goal-rate-slider').value = val;
+            calculateGoal();
+        }
+
+        function calculateGoal() {
+            let target = parseFloat(document.getElementById('goal-amount').value) || 0;
+            let years = parseInt(document.getElementById('goal-years').value) || 1;
+            let rate = (parseFloat(document.getElementById('goal-rate').value) || 0) / 100;
+
+            document.getElementById('goal-amount-val').innerText = formatLKR(target);
+            document.getElementById('goal-years-val').innerText = years + ' අවුරුදු';
+            document.getElementById('goal-rate-val').innerText = (rate * 100).toFixed(1) + ' %';
+
+            let monthlyRate = rate / 12;
+            let totalMonths = years * 12;
+
+            let requiredMonthly = 0;
+            if (monthlyRate > 0) {
+                requiredMonthly = target * (monthlyRate / (Math.pow(1 + monthlyRate, totalMonths) - 1));
+            } else {
+                requiredMonthly = target / totalMonths;
+            }
+
+            let yourTotalDeposit = requiredMonthly * totalMonths;
+            let interestEarned = target - yourTotalDeposit;
+
+            document.getElementById('goal-res-monthly').innerText = formatLKR(requiredMonthly) + ' / මසකට';
+            document.getElementById('goal-res-target').innerText = formatLKR(target);
+            document.getElementById('goal-res-your-deposit').innerText = formatLKR(yourTotalDeposit);
+            document.getElementById('goal-res-interest').innerText = formatLKR(interestEarned);
+        }
+
+        // Initialize calculations on page load
+        window.onload = function() {
+            calculateFD();
+            calculateFund();
+            calculateGoal();
+        };
+    </script>
+</body>
+</html>

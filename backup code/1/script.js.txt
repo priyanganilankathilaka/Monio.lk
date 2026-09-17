@@ -1,0 +1,75 @@
+script.js
+
+
+let budgetChart;
+
+function initChart() {
+    const chartElement = document.getElementById('budgetChart');
+    if (chartElement) {
+        const ctx = chartElement.getContext('2d');
+        budgetChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Needs (50%)', 'Wants (30%)', 'Savings (20%)'],
+                datasets: [{
+                    data: [75000, 45000, 30000],
+                    backgroundColor: ['#2563eb', '#e11d48', '#059669'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                cutout: '75%'
+            }
+        });
+    }
+}
+
+function updateDashboard() {
+    let incomeElem = document.getElementById('monthly-income');
+    let needsSlider = document.getElementById('needs-slider');
+    let wantsSlider = document.getElementById('wants-slider');
+
+    let income = incomeElem ? parseFloat(incomeElem.value) || 0 : 0;
+    let needsPercent = needsSlider ? parseInt(needsSlider.value) : 50;
+    let wantsPercent = wantsSlider ? parseInt(wantsSlider.value) : 30;
+
+    if (needsPercent + wantsPercent > 90) {
+        wantsPercent = 90 - needsPercent;
+        if (wantsSlider) wantsSlider.value = wantsPercent;
+    }
+
+    let savingsPercent = 100 - (needsPercent + wantsPercent);
+
+    let needsPercentElem = document.getElementById('needs-percent-val');
+    let wantsPercentElem = document.getElementById('wants-percent-val');
+    let savingsPercentElem = document.getElementById('savings-percent-val');
+    let savingsSlider = document.getElementById('savings-slider');
+
+    if (needsPercentElem) needsPercentElem.innerText = needsPercent + '%';
+    if (wantsPercentElem) wantsPercentElem.innerText = wantsPercent + '%';
+    if (savingsPercentElem) savingsPercentElem.innerText = savingsPercent + '%';
+    if (savingsSlider) savingsSlider.value = savingsPercent;
+
+    let needsVal = (income * needsPercent) / 100;
+    let wantsVal = (income * wantsPercent) / 100;
+    let savingsVal = (income * savingsPercent) / 100;
+
+    let needsValElem = document.getElementById('needs-val');
+    let wantsValElem = document.getElementById('wants-val');
+    let savingsValElem = document.getElementById('savings-val');
+
+    if (needsValElem) needsValElem.innerText = 'රු. ' + needsVal.toLocaleString();
+    if (wantsValElem) wantsValElem.innerText = 'රු. ' + wantsVal.toLocaleString();
+    if (savingsValElem) savingsValElem.innerText = 'රු. ' + savingsVal.toLocaleString();
+
+    if (budgetChart) {
+        budgetChart.data.datasets[0].data = [needsVal, wantsVal, savingsVal];
+        budgetChart.update();
+    }
+}
+
+window.onload = function() {
+    initChart();
+    updateDashboard();
+};

@@ -1,0 +1,440 @@
+/* ==========================================================
+   CYBER-WHITE 1000% ULTIMATE HOLOGRAM MASTERPIECE (Phase 1)
+   The Peak of Ultra-Modern Design: 3D Depth, Neon Glows, 
+   Complex Floating Shapes, Dual Fonts & Smooth Animations
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+    --canvas: #ffffff;
+    --card-base: rgba(255, 255, 255, 0.96);
+    --card-hover: #ffffff;
+    
+    /* Next-Level Neon & Holographic Gradients */
+    --neon-cyan: #00f2fe;
+    --neon-blue: #4facfe;
+    --neon-violet: #7f00ff;
+    --neon-pink: #ff007f;
+    --neon-emerald: #00b09b;
+    
+    --accent-gradient-1: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --accent-gradient-2: linear-gradient(135deg, #7f00ff 0%, #ff007f 100%);
+    --accent-gradient-3: linear-gradient(135deg, #00b09b 0%, #4facfe 100%);
+    
+    --text-heading: #060913;
+    --text-body: #1e293b;
+    --text-muted: #64748b;
+    
+    --border-glass: rgba(203, 213, 225, 0.8);
+    --border-neon-glow: rgba(127, 0, 255, 0.6);
+    
+    --shadow-hologram: 0 30px 60px -15px rgba(79, 172, 254, 0.15), 0 0 1px 1px rgba(0, 0, 0, 0.05);
+    --shadow-hover-ultimate: 0 40px 80px -20px rgba(127, 0, 255, 0.3), 0 0 35px rgba(0, 242, 254, 0.25), inset 0 0 20px rgba(255, 0, 127, 0.05);
+    
+    --font-sans: 'Plus Jakarta Sans', 'Noto Sans Sinhala', sans-serif;
+    --font-display: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--canvas);
+    color: var(--text-heading);
+    line-height: 1.85;
+    padding: 90px 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ==========================================================
+   ADVANCED 3D MULTI-LAYERED FLOATING SHAPES & GLOW ORBS
+   ========================================================== */
+body::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -150px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 254, 0.04) 40%, transparent 70%);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(90px);
+    animation: morphAndFloat1 14s ease-in-out infinite alternate;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 45%;
+    right: -150px;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(127, 0, 255, 0.08) 0%, rgba(255, 0, 127, 0.03) 40%, transparent 70%);
+    border-radius: 60% 40% 30% 70% / 50% 30% 70% 50%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(100px);
+    animation: morphAndFloat2 16s ease-in-out infinite alternate;
+}
+
+@keyframes morphAndFloat1 {
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    50% { transform: translate(60px, -90px) rotate(45deg) scale(1.1); border-radius: 60% 40% 30% 70% / 50% 70% 30% 50%; }
+    100% { transform: translate(-30px, 50px) rotate(90deg) scale(1.05); border-radius: 30% 70% 50% 50% / 30% 50% 50% 70%; }
+}
+
+@keyframes morphAndFloat2 {
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); border-radius: 60% 40% 30% 70% / 50% 30% 70% 50%; }
+    50% { transform: translate(-80px, 100px) rotate(-45deg) scale(1.15); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    100% { transform: translate(40px, -60px) rotate(-90deg) scale(1); border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+}
+
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================
+   SMOOTH ENTRANCE KEYFRAME ANIMATIONS
+   ========================================================== */
+@keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(50px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 15px rgba(79, 172, 254, 0.4); }
+    50% { box-shadow: 0 0 30px rgba(127, 0, 255, 0.7); }
+    100% { box-shadow: 0 0 15px rgba(79, 172, 254, 0.4); }
+}
+
+/* ==========================================================
+   ULTIMATE MAIN HEADER (Glassmorphic 3D Crownpiece)
+   ========================================================== */
+.main-header {
+    text-align: center;
+    margin-bottom: 75px;
+    padding: 80px 45px;
+    background: var(--card-base);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid var(--border-glass);
+    border-radius: 40px;
+    box-shadow: var(--shadow-hologram);
+    position: relative;
+    overflow: hidden;
+    animation: slideUpFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background: var(--accent-gradient-2);
+}
+
+/* Dynamic Floating Background Geometric Ring inside Header */
+.main-header::after {
+    content: '';
+    position: absolute;
+    right: -70px;
+    bottom: -70px;
+    width: 280px;
+    height: 280px;
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.06), rgba(127, 0, 255, 0.1));
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    z-index: 0;
+    animation: morphAndFloat1 10s ease-in-out infinite alternate;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--accent-gradient-2);
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 10px 28px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+    animation: pulseGlow 4s infinite;
+    position: relative;
+    z-index: 1;
+}
+
+.main-header h1 {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    background: linear-gradient(135deg, #060913 30%, #7f00ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1.5px;
+    position: relative;
+    z-index: 1;
+}
+
+.main-header p {
+    font-size: 1.2rem;
+    color: var(--text-body);
+    max-width: 780px;
+    margin: 0 auto;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================
+   CATEGORY BANNER (Hologram Neon Divider Bar)
+   ========================================================== */
+.category-banner {
+    grid-column: 1 / -1;
+    background: #ffffff;
+    border-left: 7px solid var(--neon-cyan);
+    padding: 28px 38px;
+    border-radius: 24px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-hologram);
+    border: 1px solid var(--border-glass);
+    border-left-width: 7px;
+    position: relative;
+    animation: slideUpFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    opacity: 0;
+}
+
+.category-banner h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: var(--accent-gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+/* ==========================================================
+   CONTENT GRID (2-Column Ultimate Asymmetric Grid)
+   ========================================================== */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    align-items: stretch;
+}
+
+/* ==========================================================
+   STEP CARD (Advanced 3D Hologram Cards with Ultra Glows)
+   ========================================================== */
+.step-card {
+    background: var(--card-base);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid var(--border-glass);
+    border-radius: 34px;
+    padding: 48px;
+    position: relative;
+    box-shadow: var(--shadow-hologram);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    animation: slideUpFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+/* Staggered Timings for Each Card */
+.step-card:nth-child(1) { animation-delay: 0.3s; }
+.step-card:nth-child(2) { animation-delay: 0.4s; }
+.step-card:nth-child(3) { animation-delay: 0.5s; }
+.step-card:nth-child(4) { animation-delay: 0.6s; }
+.step-card:nth-child(5) { animation-delay: 0.7s; }
+.step-card:nth-child(6) { animation-delay: 0.8s; }
+
+/* Neon Holographic Corner Geometric Accent */
+.step-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(225deg, rgba(0, 242, 254, 0.1) 0%, transparent 70%);
+    border-bottom-left-radius: 110px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+}
+
+.step-card:hover::before {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(225deg, rgba(127, 0, 255, 0.2) 0%, transparent 70%);
+}
+
+.step-card:hover {
+    transform: translateY(-12px) scale(1.015);
+    border-color: var(--border-neon-glow);
+    box-shadow: var(--shadow-hover-ultimate);
+    background: var(--card-hover);
+}
+
+/* Floating Precision Step Number Badge */
+.step-number {
+    position: absolute;
+    top: 38px;
+    right: 38px;
+    background: #f8fafc;
+    color: var(--neon-violet);
+    border: 1px solid var(--border-glass);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 14px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    z-index: 1;
+}
+
+.step-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-heading);
+    padding-right: 95px;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 1;
+}
+
+.step-card > p {
+    color: var(--text-body);
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    position: relative;
+    z-index: 1;
+}
+
+/* Styled Interactive Lists with Neon Bullet Icons */
+.step-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+.step-card ul li {
+    position: relative;
+    padding-left: 32px;
+    color: var(--text-body);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.step-card ul li::before {
+    content: "✦";
+    position: absolute;
+    left: 2px;
+    top: 1px;
+    color: var(--neon-pink);
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+}
+
+.step-card ul li strong {
+    color: var(--text-heading);
+    font-weight: 700;
+}
+
+/* Hologram Neon Highlight Box */
+
+.highlight-box {
+    margin-top: auto;
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.04) 0%, rgba(127, 0, 255, 0.04) 100%);
+    border: 1px solid var(--border-glass);
+    border-left: 5px solid var(--neon-cyan);
+    padding: 20px 26px;
+    border-radius: 0 16px 16px 0;
+    font-size: 1rem;
+    color: var(--text-body);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.02);
+    position: relative;
+    z-index: 1;
+}
+
+.highlight-box strong {
+    background: var(--accent-gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN ADAPTATIONS
+   ========================================================== */
+
+@media (max-width: 950px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 30px 12px;
+    }
+    .main-header {
+        padding: 50px 24px;
+        margin-bottom: 45px;
+    }
+    .main-header h1 {
+        font-size: 2.4rem;
+    }
+    .step-card {
+        padding: 30px;
+    }
+    .step-number {
+        position: static;
+        display: inline-block;
+        margin-bottom: 18px;
+    }
+    .step-card h3 {
+        padding-right: 0;
+        font-size: 1.35rem;
+    }
+}
+
+
+
+/* Footer */
+footer {
+    padding: 50px 24px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    background-color: var(--bg-main);
+}
+

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINANCIAL DEFENSE SYSTEM</title>
+    <link rel="stylesheet" href="phase4.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Hero Header -->
+    <header class="hero">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="pill-badge">
+                <span class="pulse-dot"></span> PHASE 04: FINANCIAL DEFENSE SYSTEM
+            </div>
+            <h1>ණය නිදහස සහ හදිසි අරමුදල් ගොඩනැගීම</h1>
+            <p class="hero-sub">අධික පොලී ණය (Toxic Debt) කඩිනමින් බිංදුවට බැස්සවීමේ ගණිතමය උපායමාර්ගය සහ ආර්ථික කම්පනවලට නොසැලෙන මාස 6ක Liquid Emergency Fund එකක් ස්ථාපිත කිරීම.</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Module 1: Order of Operations -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">THE FINANCIAL ORDER OF OPERATIONS</span>
+                <h2>01. ක්‍රියාත්මක විය යුතු නිවැරදි අනුපිළිවෙල</h2>
+                <p>ණය ගෙවීමට පෙර හෝ කොටස් වෙළෙඳපොළේ ආයෝජනයට පෙර, ඔබගේ ආරක්ෂාව තහවුරු කරගන්නා පියවර 3ක පද්ධතිය.</p>
+            </div>
+
+            <div class="grid-3 gap-24">
+                <div class="card step-card">
+                    <div class="step-num">Step 1</div>
+                    <h3>Starter Emergency Fund</h3>
+                    <p class="card-desc">මුලින්ම <strong>රු. 50,000 - 100,000</strong> ක කුඩා අරමුදලක් සාදාගන්න. වාහනයක් කැඩීමක් හෝ හදිසි බෙහෙත් ගැනීමක් නිසා නැවත Credit Card එකට අත තැබීම මෙයින් වැළකේ.</p>
+                </div>
+                <div class="card step-card active-step">
+                    <div class="step-num step-danger">Step 2</div>
+                    <h3>Eradicate Toxic Debt</h3>
+                    <p class="card-desc">Credit Cards සහ 15% ට වැඩි සියලුම පුද්ගලික ණය <strong>Avalanche Method</strong> (වැඩිම පොලිය මුලින් ගෙවීම) භාවිතා කර මුළුමනින්ම ගෙවා දමන්න.</p>
+                </div>
+                <div class="card step-card">
+                    <div class="step-num step-success">Step 3</div>
+                    <h3>Full 6-Month Armor</h3>
+                    <p class="card-desc">ණය බිංදුව වූ පසු, ණය වලට ගෙවූ සම්පූර්ණ මුදලම MMF එකකට යොමු කර ඔබගේ අත්‍යවශ්‍ය මාසික වියදම මෙන් 6 ගුණයක් එකතු කරගන්න.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 2: Toxic Debt Eradication -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">DEBT DESTRUCTION ENGINE</span>
+                <h2>02. අධික පොලී ණය ගෙවා දැමීමේ වේගවත් කිරීම (Avalanche Method)</h2>
+                <p>24% ක පොලියකට යටත් වන ණයක් ගෙවා දැමීම යනු, කිසිදු අවදානමකින් තොරව (Risk-Free) 24% ක ආයෝජන ප්‍රතිලාභයක් ලැබීම හා සමානය. අමතර මුදලක් ණයට ගෙවීමෙන් ඔබ බේරාගන්නා කාලය සහ මුදල මෙතැනින් බලන්න.</p>
+            </div>
+
+            <div class="grid-2 gap-24">
+                <div class="card tool-card-interactive border-danger">
+                    <div class="card-header-flex">
+                        <h3>Debt Payoff Accelerator</h3>
+                        <span class="badge-danger">Debt Engine</span>
+                    </div>
+
+                    <div class="input-field-group">
+                        <label>දැනට ගෙවීමට ඇති මුළු ණය මුදල (Principal LKR):</label>
+                        <input type="number" id="debt-principal" value="250000">
+                    </div>
+
+                    <div class="input-field-group">
+                        <label>වාර්ෂික පොලී අනුපාතය (%):</label>
+                        <input type="number" id="debt-rate" value="24">
+                    </div>
+
+                    <div class="input-field-group">
+                        <label>දැනට ගෙවන සාමාන්‍ය/අවම මාසික වාරිකය (LKR):</label>
+                        <input type="number" id="debt-min-pay" value="12000">
+                    </div>
+
+                    <div class="input-field-group">
+                        <label>මාසිකව එකතු කරන අමතර ගෙවීම (Extra Payment LKR):</label>
+                        <input type="number" id="debt-extra-pay" value="15000" style="border-color: var(--brand-accent); background: var(--brand-accent-light);">
+                        <small style="color: #64748B; font-size: 0.75rem; margin-top: 4px; display: block;">* වෙනත් වියදම් කපා හැර ණය ගෙවීමට යොදන මුදල</small>
+                    </div>
+                </div>
+
+                <div class="card result-card bg-slate">
+                    <h3 class="margin-bottom-16">ඔබට ලැබෙන මූල්‍යමය වාසිය</h3>
+                    
+                    <div id="debt-error" class="error-msg" style="display: none;">අවම වාරිකය මාසික පොලියට වඩා අඩුයි! ණය කවදාවත් ගෙවී අවසන් නොවේ.</div>
+
+                    <div class="comparison-box">
+                        <div class="comp-item">
+                            <div class="comp-label">සාමාන්‍ය ගෙවීම් කළොත්:</div>
+                            <div id="debt-normal-time" class="comp-val">මාස 28</div>
+                            <div id="debt-normal-int" class="comp-sub">මුළු පොලිය: Rs. 68,000</div>
+                        </div>
+                        <div class="comp-item active-comp">
+                            <div class="comp-label text-accent">අමතර මුදලත් ගෙව්වොත්:</div>
+                            <div id="debt-fast-time" class="comp-val text-accent">මාස 10</div>
+                            <div id="debt-fast-int" class="comp-sub">මුළු පොලිය: Rs. 26,000</div>
+                        </div>
+                    </div>
+
+                    <div class="savings-highlight">
+                        <div class="sh-title">ඔබ ඉතිරි කරගන්නා මුදල:</div>
+                        <div id="debt-saved-money" class="sh-val">Rs. 42,000</div>
+                        <div id="debt-saved-time" class="sh-sub">මාස 18 කින් ණයෙන් නිදහස් වෙයි!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 3: Full Emergency Armor Building -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">LIQUID DEFENSE SYSTEM</span>
+                <h2>03. මාස 6ක හදිසි අරමුදල (Money Market Fund Engine)</h2>
+                <p>සාමාන්‍ය ඉතුරුම් ගිණුමක (Savings Account) මුදල් තැබීමෙන් උද්ධමනය හමුවේ එහි වටිනාකම දියවී යයි. හදිසි අරමුදල සැමවිටම දිනපතා පොලිය එකතුවන, ඕනෑම විටක ගත හැකි MMF (Unit Trust) එකක තැන්පත් කරන්න.</p>
+            </div>
+
+            <div class="card tool-card-interactive full-width-card border-success">
+                <div class="grid-2 gap-32">
+                    <div>
+                        <div class="card-header-flex">
+                            <h3>Emergency Fund Simulator</h3>
+                            <span class="badge-accent">Growth Engine</span>
+                        </div>
+                        
+                        <div class="input-field-group">
+                            <label>ඔබගේ අත්‍යවශ්‍ය මාසික ජීවන වියදම (LKR):</label>
+                            <input type="number" id="ef-expenses" value="75000">
+                        </div>
+
+                        <div class="input-field-group">
+                            <label>දැනට ඔබ සතුව ඇති හදිසි ඉතිරිය (Starter Fund LKR):</label>
+                            <input type="number" id="ef-current" value="50000">
+                        </div>
+
+                        <div class="input-field-group">
+                            <label>මාසිකව අරමුදලට එකතු කරන මුදල (LKR):</label>
+                            <input type="number" id="ef-monthly" value="25000">
+                        </div>
+
+                        <div class="input-field-group">
+                            <label>MMF හි වාර්ෂික පොලී අනුපාතය (%):</label>
+                            <input type="number" id="ef-rate" value="11.5">
+                        </div>
+                    </div>
+
+                    <div class="ef-results-container">
+                        <div class="target-box">
+                            <div class="tb-label">අවශ්‍ය සම්පූර්ණ අරමුදල (මාස 6):</div>
+                            <div id="ef-target-val" class="tb-val">Rs. 450,000</div>
+                        </div>
+
+                        <div class="timeline-box">
+                            <div class="tl-icon">⏳</div>
+                            <div class="tl-content">
+                                <div class="tl-title">ඉලක්කය සපුරා ගැනීමට ගතවන කාලය:</div>
+                                <div id="ef-time-val" class="tl-val text-accent">මාස 14 යි</div>
+                                <div id="ef-interest-earned" class="tl-sub">MMF එකෙන් නොමිලේ එකතු වන පොලිය: Rs. 38,500</div>
+                            </div>
+                        </div>
+
+                        <div class="rule-box">
+                            <strong>Red Button Rule:</strong> මෙම අරමුදල අලුත් iPhone එකක් ගැනීමට හෝ Trip එකක් යාමට භාවිතා කළ නොහැක. මෙය වෙන්වන්නේ රැකියාව අහිමි වීම, වෛද්‍ය හදිසියක් හෝ වාහනය අනතුරකට ලක්වීම වැනි දේවල් සඳහා පමණි.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 4: Advanced Defense Strategies (NEW) -->
+        <section class="section bg-highlight-section">
+            <div class="section-header">
+                <span class="section-tag">PRO-LEVEL TACTICS</span>
+                <h2>04. උසස් ආරක්ෂණ උපායමාර්ග</h2>
+                <p>සාමාන්‍ය හදිසි අරමුදලකින් ඔබ්බට ගොස් ඔබගේ ඩිජිටල් වත්කම් සහ ආයෝජන කළඹ සුරක්ෂිත කරන දියුණු ක්‍රමවේද.</p>
+            </div>
+
+            <div class="grid-2 gap-24">
+                <div class="card adv-card">
+                    <div class="adv-icon">🛡️</div>
+                    <div class="adv-content">
+                        <h3>Portfolio Shield (ආයෝජන පලිහ)</h3>
+                        <p>කොටස් වෙළෙඳපොළ කඩා වැටෙන අවස්ථාවකදී (Market Crash) හදිසි මුදල් අවශ්‍යතාවයක් ආවොත්, පාඩුවට කොටස් විකිණීමට (Panic Selling) සිදු නොවීම මෙහි ප්‍රධාන රහසිගත වාසියයි. මෙය ඔබගේ ආයෝජනවලට අදෘශ්‍යමාන පලිහක් වෙයි.</p>
+                    </div>
+                </div>
+
+                <div class="card adv-card">
+                    <div class="adv-icon">📊</div>
+                    <div class="adv-content">
+                        <h3>Variable Income Buffer</h3>
+                        <p>AdSense වැනි වෙනස් වන ආදායම් ලබන විට අරමුදල ස්තර 2කට වෙන් කරන්න. <strong>Tier 1:</strong> මාස 1ක වියදම සාමාන්‍ය ගිණුමේ තබන්න (ක්ෂණික භාවිතයට). <strong>Tier 2:</strong> ඉතිරි මාස 5ක මුදල MMF එකක යොදවන්න.</p>
+                    </div>
+                </div>
+
+                <div class="card adv-card">
+                    <div class="adv-icon">💻</div>
+                    <div class="adv-content">
+                        <h3>Sinking Funds (උපකරණ අරමුදල)</h3>
+                        <p>පරිගණක, කැමරා වැනි දේවල් කාලයත් සමඟ අලුත් කිරීමට සිදුවීම 'හදිසියක්' නොවේ. ප්‍රධාන අරමුදලට අත නොතියා, උපකරණ අලුත් කිරීමට මාසිකව කුඩා මුදලක් වෙන් කරන වෙනම උප-අරමුදලක් (Sinking Fund) පවත්වා ගන්න.</p>
+                    </div>
+                </div>
+
+                <div class="card adv-card">
+                    <div class="adv-icon">🔐</div>
+                    <div class="adv-content">
+                        <h3>Strict Digital Vault</h3>
+                        <p>මූල්‍යමය අවසාන ආරක්ෂාව සයිබර් ප්‍රහාර වලින් වළක්වා ගන්න. අරමුදලට අදාළ බැංකු/MMF ගිණුම් වලට ලොග් වීමට පමණක්ම වෙන් වූ, Extensions කිසිවක් නැති වෙනම Browser Profile එකක් භාවිතා කරන්න.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- Next Page Navigation Button -->
+<div class="next-page-container">
+    <a href="phase5.html" class="next-page-btn">
+        <span>ඊළඟ පිටුවට (Next Page)</span>
+        <span class="btn-arrow">→</span>
+    </a>
+</div>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Monio.lk | All rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT ENGINE -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- 01. Debt Eradication Engine ---
+            const debtPrincipal = document.getElementById('debt-principal');
+            const debtRate = document.getElementById('debt-rate');
+            const debtMinPay = document.getElementById('debt-min-pay');
+            const debtExtraPay = document.getElementById('debt-extra-pay');
+            
+            const outNormalTime = document.getElementById('debt-normal-time');
+            const outNormalInt = document.getElementById('debt-normal-int');
+            const outFastTime = document.getElementById('debt-fast-time');
+            const outFastInt = document.getElementById('debt-fast-int');
+            const outSavedMoney = document.getElementById('debt-saved-money');
+            const outSavedTime = document.getElementById('debt-saved-time');
+            const errorMsg = document.getElementById('debt-error');
+
+            function calculateDebtPayoff(principal, annualRate, monthlyPay) {
+                let balance = principal;
+                let months = 0;
+                let totalInterest = 0;
+                let monthlyRate = (annualRate / 100) / 12;
+
+                if (monthlyPay <= balance * monthlyRate) {
+                    return { months: -1, interest: 0 }; 
+                }
+
+                while (balance > 0 && months < 600) { 
+                    let interestForMonth = balance * monthlyRate;
+                    totalInterest += interestForMonth;
+                    balance += interestForMonth;
+                    balance -= monthlyPay;
+                    months++;
+                }
+                return { months: months, interest: totalInterest };
+            }
+
+            function updateDebtEngine() {
+                let p = parseFloat(debtPrincipal.value) || 0;
+                let r = parseFloat(debtRate.value) || 0;
+                let minP = parseFloat(debtMinPay.value) || 0;
+                let extP = parseFloat(debtExtraPay.value) || 0;
+
+                let normalCalc = calculateDebtPayoff(p, r, minP);
+                let fastCalc = calculateDebtPayoff(p, r, minP + extP);
+
+                if (normalCalc.months === -1) {
+                    errorMsg.style.display = 'block';
+                    outNormalTime.innerText = "ගෙවී අවසන් නොවේ";
+                    outNormalInt.innerText = "මුළු පොලිය: අනන්තයි";
+                    outSavedMoney.innerText = "Rs. 0";
+                    outSavedTime.innerText = "අවම ගෙවීම වැඩි කරන්න!";
+                } else {
+                    errorMsg.style.display = 'none';
+                    outNormalTime.innerText = `මාස ${normalCalc.months}`;
+                    outNormalInt.innerText = `මුළු පොලිය: Rs. ${Math.round(normalCalc.interest).toLocaleString()}`;
+                    
+                    if(fastCalc.months !== -1) {
+                        outFastTime.innerText = `මාස ${fastCalc.months}`;
+                        outFastInt.innerText = `මුළු පොලිය: Rs. ${Math.round(fastCalc.interest).toLocaleString()}`;
+                        
+                        let savedInt = normalCalc.interest - fastCalc.interest;
+                        let savedMonths = normalCalc.months - fastCalc.months;
+                        
+                        outSavedMoney.innerText = `Rs. ${Math.round(savedInt).toLocaleString()}`;
+                        outSavedTime.innerText = `මාස ${savedMonths} කින් කලින් නිදහස් වෙයි!`;
+                    }
+                }
+            }
+
+            [debtPrincipal, debtRate, debtMinPay, debtExtraPay].forEach(el => {
+                if(el) el.addEventListener('input', updateDebtEngine);
+            });
+            updateDebtEngine();
+
+
+            // --- 02. Emergency Fund Builder Engine ---
+            const efExpenses = document.getElementById('ef-expenses');
+            const efCurrent = document.getElementById('ef-current');
+            const efMonthly = document.getElementById('ef-monthly');
+            const efRate = document.getElementById('ef-rate');
+
+            const outTarget = document.getElementById('ef-target-val');
+            const outEfTime = document.getElementById('ef-time-val');
+            const outEfIntEarned = document.getElementById('ef-interest-earned');
+
+            function updateEFEngine() {
+                let exp = parseFloat(efExpenses.value) || 0;
+                let curr = parseFloat(efCurrent.value) || 0;
+                let add = parseFloat(efMonthly.value) || 0;
+                let rate = parseFloat(efRate.value) || 0;
+
+                let targetAmount = exp * 6;
+                outTarget.innerText = `Rs. ${Math.round(targetAmount).toLocaleString()}`;
+
+                if (curr >= targetAmount) {
+                    outEfTime.innerText = "ඉලක්කය සම්පූර්ණයි!";
+                    outEfIntEarned.innerText = "ඔබගේ අරමුදල දැනටමත් සූදානම්.";
+                    return;
+                }
+
+                if (add <= 0 && rate <= 0) {
+                    outEfTime.innerText = "අමතර එකතු කිරීමක් අවශ්‍යයි";
+                    outEfIntEarned.innerText = "";
+                    return;
+                }
+
+                let balance = curr;
+                let months = 0;
+                let totalIntEarned = 0;
+                let monthlyRate = (rate / 100) / 12;
+
+                while (balance < targetAmount && months < 1200) { 
+                    let intMonth = balance * monthlyRate;
+                    totalIntEarned += intMonth;
+                    balance += intMonth;
+                    balance += add;
+                    months++;
+                }
+
+                let years = Math.floor(months / 12);
+                let extraMonths = months % 12;
+                let timeString = years > 0 ? `අවු. ${years} මාස ${extraMonths}` : `මාස ${months} යි`;
+
+                outEfTime.innerText = timeString;
+                outEfIntEarned.innerText = `MMF එකෙන් ලැබෙන පොලිය ආසන්න වශයෙන්: Rs. ${Math.round(totalIntEarned).toLocaleString()}`;
+            }
+
+            [efExpenses, efCurrent, efMonthly, efRate].forEach(el => {
+                if(el) el.addEventListener('input', updateEFEngine);
+            });
+            updateEFEngine();
+
+        });
+    </script>
+</body>
+</html>

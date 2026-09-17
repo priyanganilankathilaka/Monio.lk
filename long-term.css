@@ -1,0 +1,300 @@
+/* ==========================================================================
+   PREMIUM LIGHT FINTECH UI - ANIMATED & GLOWING (WHITE THEME)
+   Vibe: Clean, Animated, High-end Wealth Dashboard (Stripe/Apple Style)
+   ========================================================================== */
+
+:root {
+    /* Premium Light Palette */
+    --bg-main: #F4F7FE; /* Soft light blue/grey background */
+    --bg-card: rgba(255, 255, 255, 0.85); /* Glassmorphism White */
+    --bg-item: #FFFFFF;
+    
+    /* Vibrant Accents */
+    --accent-money: #10B981; /* Wealth Green */
+    --accent-blue: #3B82F6;  /* Trust Blue */
+    --accent-gold: #F59E0B;  /* Premium Gold */
+    --accent-purple: #8B5CF6;
+    
+    /* Text Colors */
+    --text-primary: #1E293B; /* Very dark slate for headings */
+    --text-secondary: #475569;
+    --text-muted: #94A3B8;
+    
+    /* Borders & Shadows */
+    --border-light: rgba(255, 255, 255, 0.5);
+    --border-item: #E2E8F0;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.03);
+    
+    --radius-md: 12px;
+    --radius-lg: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    font-family: 'Inter', 'Noto Serif Sinhala', 'Plus Jakarta Sans', sans-serif;
+    font-size: 14.5px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    /* Soft Light Grid Pattern */
+    background-image: 
+        linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* --- 1. BACKGROUND ANIMATIONS (ORBS & ASSETS) --- */
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Soft Glowing Orbs on White */
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: orbFloat 25s infinite alternate ease-in-out;
+}
+.orb-1 { width: 500px; height: 500px; background: rgba(59, 130, 246, 0.3); top: -100px; left: -100px; }
+.orb-2 { width: 600px; height: 600px; background: rgba(16, 185, 129, 0.25); bottom: -150px; right: -100px; animation-delay: -5s; }
+
+/* Floating Money & Assets (Subtle Opacity) */
+.floating-asset {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 0.15; /* Subtle so it doesn't ruin readability */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    animation: floatAsset 20s infinite linear;
+}
+.asset-1 { top: 15%; left: 8%; animation-duration: 25s; }
+.asset-2 { top: 40%; right: 12%; font-size: 3.5rem; animation-duration: 30s; animation-direction: reverse; }
+.asset-3 { bottom: 20%; left: 15%; animation-duration: 22s; }
+.asset-4 { top: 70%; right: 8%; font-size: 2rem; animation-duration: 28s; }
+.asset-5 { top: 8%; right: 40%; animation-duration: 35s; }
+.asset-6 { bottom: 5%; left: 50%; font-size: 3rem; animation-duration: 20s; }
+
+/* --- 2. LAYOUT --- */
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 32px 80px 32px;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- 3. NAVIGATION --- */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-item);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+.back-btn:hover {
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.15);
+    transform: translateX(-5px);
+}
+
+/* --- 4. HEADER WITH VIBRANT TEXT & PULSE BADGE --- */
+.header-content {
+    margin: 40px 0 60px 0;
+    text-align: center;
+    animation: fadeInDown 1s ease-out forwards;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669; /* Darker Green for white theme readability */
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    animation: pulseBadgeLight 2s infinite;
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    /* Beautiful Gradient for White Theme */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-money));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- 5. CATEGORY CARDS (GLASSMORPHISM) --- */
+.investment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.category-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(255,255,255,0.8) inset;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered delays */
+.category-card:nth-child(1) { animation-delay: 0.1s; }
+.category-card:nth-child(2) { animation-delay: 0.2s; }
+.category-card:nth-child(3) { animation-delay: 0.3s; }
+.category-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Subtle top colored gradient line */
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-money));
+    opacity: 0.8;
+}
+
+.category-card h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* H2 Animated Accent */
+.category-card h2::before {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 24px;
+    background: var(--accent-money);
+    border-radius: 4px;
+}
+
+/* --- 6. GRID ITEMS (COLORFUL HOVER GLOWS) --- */
+.item-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.item-list li {
+    background: var(--bg-item);
+    border: 1px solid var(--border-item);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.item-list li strong {
+    display: block;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+/* 🟢 THE MAGIC HOVER EFFECT FOR WHITE THEME 🟢 */
+.item-list li:hover {
+    background: #FFFFFF;
+    border-color: rgba(16, 185, 129, 0.4);
+    /* Soft glowing colored shadow instead of harsh dark shadow */
+    box-shadow: 
+        0 15px 30px rgba(16, 185, 129, 0.15),
+        0 4px 10px rgba(59, 130, 246, 0.1);
+    transform: translateY(-5px) scale(1.02);
+    z-index: 2;
+}
+
+.item-list li:hover strong {
+    color: #059669; /* Dark emerald green text on hover */
+}
+
+/* --- 7. KEYFRAME ANIMATIONS --- */
+@keyframes orbFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 50px) scale(1.1); }
+}
+
+@keyframes floatAsset {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.15; }
+    90% { opacity: 0.15; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes pulseBadgeLight {
+    0%, 100% { box-shadow: 0 0 0px rgba(16, 185, 129, 0.2); }
+    50% { box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 8. RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .item-list { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+    .header-content h1 { font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+    .page-container { padding: 24px 16px 60px 16px; }
+    .header-content h1 { font-size: 2rem; }
+    .item-list { grid-template-columns: 1fr; }
+    .category-card { padding: 20px; }
+}

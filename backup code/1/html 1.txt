@@ -1,0 +1,208 @@
+html 1 
+
+
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monio.lk | Modern Financial Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;600;700;800&family=Noto+Serif+Sinhala:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="top-ribbon">
+        <span class="ribbon-badge">NEW</span>
+        <span class="ribbon-text">ලංකාවේ අංක 1 Smart Budgeting & Investment Platform එක වෙත සාදරයෙන් පිළිගනිමු!</span>
+        <a href="#calculator" class="ribbon-link">අත්හදා බලන්න →</a>
+    </div>
+
+    <header class="navbar-wrapper">
+        <div class="navbar-container">
+            <div class="brand">
+                <img src="logo.png" alt="Monio.lk Logo" class="main-logo">
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="active">මුල් පිටුව</a>
+                <a href="#maslow">මූලික පදනම</a>
+                <a href="buddhism.html" class="highlight-link">🪷 බෞද්ධ මූල්‍ය පදනම</a>
+                <a href="#calculator">Smart Calculator</a>
+                <a href="#masterclass">මූල්‍ය පාඨමාලා</a>
+            </nav>
+            <button class="cta-btn-nav">ආරම්භ කරන්න</button>
+        </div>
+    </header>
+
+    <div class="glow-bg glow-1"></div>
+    <div class="glow-bg glow-2"></div>
+
+    <div class="main-container">
+        <section id="home" class="hero-section">
+            <div class="badge">PRO FINANCIAL PLATFORM</div>
+            <h1>ඔබේ මූල්‍ය අනාගතය <br><span class="gold-gradient-text">විද්‍යාත්මකව සැලසුම් කරන්න</span></h1>
+            <p>ආදායම, වියදම, ආයෝජනය සහ සංයුක්ත වර්ධනය නිවැරදිව පාලනය කරන ශ්‍රී ලංකාවේ අංක 1 උසස් මූල්‍ය කළමනාකරණ පද්ධතිය.</p>
+            <div class="hero-actions">
+                <a href="#calculator" class="primary-btn">ගණක යන්ත්‍රය භාවිතා කරන්න</a>
+                <a href="#masterclass" class="secondary-btn">දැනුම ලබාගන්න <span>→</span></a>
+            </div>
+        </section>
+
+        <section id="maslow" class="maslow-container">
+            <div class="section-header">
+                <div class="mini-tag">PSYCHOLOGICAL FOUNDATION</div>
+                <h2>හැමදේටම කලින් මේ දේ දැනගෙන ඉන්න</h2>
+                <p>Maslow ගේ මිනිස් අවශ්‍යතා ශ්‍රේණිගත කිරීම (Hierarchy of Needs) අනුව මූලික අවශ්‍යතා ඉටු වෙනකොට විතරයි ඊළඟ පියවරට යන්න පුළුවන්.</p>
+            </div>
+
+            <div class="maslow-grid">
+                <div class="maslow-content-left">
+                    <div class="step-card glass-panel" data-step="5">
+                        <div class="step-num step-5-bg">05</div>
+                        <div class="step-info">
+                            <h3>Self-Actualization Needs <span class="sub-title">(ස්වයං අවබෝධය)</span></h3>
+                            <p>තමාගේ උපරිම දක්ෂතාවය සහ නිසඟ හැකියාවන් ක්‍රියාවට නංවා තමාගේ හොඳම අනුවාදය (Best Version) බවට පත්වීම.</p>
+                            <div class="step-details">
+                                <strong>📌 මූල්‍ය උදාහරණ:</strong>
+                                <span>• දාන මාන සහ සමාජ සේවා කටයුතු (Charity & Philanthropy)</span>
+                                <span>• තමාගේම ආශාවන් ඉටුකර ගැනීමට ව්‍යාපාර හෝ විශාල ව්‍යාපෘති ආරම්භ කිරීම</span>
+                                <span>• අලුත් කුසලතා සහ පෞද්ගලික වර්ධනය (Self-development) වෙනුවෙන් ආයෝජනය</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-card glass-panel" data-step="4">
+                        <div class="step-num step-4-bg">04</div>
+                        <div class="step-info">
+                            <h3>Esteem Needs <span class="sub-title">(ආත්ම අභිමානය සහ ගෞරවය)</span></h3>
+                            <p>අන් අයගෙන් ගෞරවයක්, ඇගයීමක් සහ තමා තුළම ස්වයං ගෞරවයක් (Self-respect) ගොඩනගා ගැනීම.</p>
+                            <div class="step-details">
+                                <strong>📌 මූල්‍ය උදාහරණ:</strong>
+                                <span>• පුද්ගලික ජයග්‍රහණ සැමරීම සහ තමාගේ අභිමානය වෙනුවෙන් කරන වියදම්</span>
+                                <span>• උසස් වෘත්තීය මට්ටමක් හෝ අධ්‍යාපනික සුදුසුකම් ලබා ගැනීමට දැරෙන වියදම්</span>
+                                <span>• තමාගේ පෞරුෂය ඉහළ නංවන දේ මිලදී ගැනීම (Wants අංශයට අයත්)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-card glass-panel" data-step="3">
+                        <div class="step-num step-3-bg">03</div>
+                        <div class="step-info">
+                            <h3>Social Needs <span class="sub-title">(සමාජීය අවශ්‍යතා)</span></h3>
+                            <p>තනිකමෙන් මිදීමටත්, අන් අයගේ ආදරය, පිළිගැනීම සහ එකතු වීම (belonging) අපේක්ෂා කරයි.</p>
+                            <div class="step-details">
+                                <strong>📌 මූල්‍ය උදාහරණ:</strong>
+                                <span>• පවුලේ අය සහ මිතුරන් සමඟ ගතකරන විනෝද ගමන් (Family Trips / Vacations)</span>
+                                <span>• උත්සව, මංගල්‍යයන් සහ විශේෂ අවස්ථාවන් සඳහා කරනු ලබන වියදම්</span>
+                                <span>• ආදරණීයයන්ට තෑගි බෝග ලබාදීම සහ සමාජ සබඳතා පවත්වා ගැනීම</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-card glass-panel" data-step="2">
+                        <div class="step-num step-2-bg">02</div>
+                        <div class="step-info">
+                            <h3>Safety & Security Needs <span class="sub-title">(ආරක්ෂාව සහ සුරක්ෂිතතාව)</span></h3>
+                            <p>තමාගේ අනාගතය පිළිබඳ අවදානම් අවම කරගෙන ආරක්ෂිත පරිසරයක් නිර්මාණය කර ගැනීම.</p>
+                            <div class="step-details">
+                                <strong>📌 මූල්‍ය උදාහරණ:</strong>
+                                <span>• හදිසි අරමුදලක් (Emergency Fund - මාස 6ක වියදම්) පවත්වාගෙන යාම</span>
+                                <span>• සෞඛ්‍ය සහ ජීවිත රක්ෂණ (Health & Life Insurance) ලබා ගැනීම</span>
+                                <span>• ස්ථාවර තැන්පතු, පෙන්ෂන් ප්ලෑන් සහ දීර්ඝකාලීන ආරක්ෂිත ආයෝජන</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-card glass-panel" data-step="1">
+                        <div class="step-num step-1-bg">01</div>
+                        <div class="step-info">
+                            <h3>Physiological Needs <span class="sub-title">(කායික / මූලික)</span></h3>
+                            <p>ආහාර, පානීය ජලය, වාතය, ප්‍රමාණවත් නින්ද, ඇඳුම් සහ නිවහන වැනි ජීවත් වීමට අත්‍යවශ්‍ය මූලික දේ.</p>
+                            <div class="step-details">
+                                <strong>📌 මූල්‍ය උදාහරණ:</strong>
+                                <span>• දෛනික ආහාර පාන සහ පෝෂණය සඳහා වන වියදම්</span>
+                                <span>• නිවාස කුලිය / ගෙවල් වාරික, විදුලිය, ජලය සහ ගෑස් බිල්පත්</span>
+                                <span>• ඇඳුම් පැළඳුම් සහ මූලික සෞඛ්‍ය/බෙහෙත් හේත් සඳහා යන වියදම්</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="maslow-visual-right">
+                    <div class="pyramid-wrapper glass-panel">
+                        <h4 class="pyramid-title">Maslow's Pyramid Diagram</h4>
+                        <div class="pyramid-container">
+                            <div class="p-level p-lvl-5"><span>05. Self-Actualization</span></div>
+                            <div class="p-level p-lvl-4"><span>04. Esteem Needs</span></div>
+                            <div class="p-level p-lvl-3"><span>03. Social Needs</span></div>
+                            <div class="p-level p-lvl-2"><span>02. Safety & Security</span></div>
+                            <div class="p-level p-lvl-1"><span>01. Physiological Needs</span></div>
+                        </div>
+                    </div>
+
+                    <div class="financial-takeaway-card">
+                        <div class="takeaway-header">
+                            <span class="light-icon">💡</span>
+                            <h4>මූල්‍ය කළමනාකරණ සාරාංශය (Summary Takeaway)</h4>
+                        </div>
+                        <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 16px; line-height: 1.6;">
+                            ඔබේ මුදල් වෙන් කිරීමේදී පිරමිඩයේ පහළ සිට ඉහළට මූල්‍ය ප්‍රමුඛතාවයන් ලබා දීම සාර්ථක බජට් එකක පදනමයි:
+                        </p>
+                        <ul class="takeaway-list">
+                            <li>
+                                <span class="t-badge b-1">1</span>
+                                <span><strong>පළමු ප්‍රමුඛතාව:</strong> මූලික ජීවන වියදම් (Step 1) සපයා ගැනීම.</span>
+                            </li>
+                            <li>
+                                <span class="t-badge b-2">2</span>
+                                <span><strong>දෙවන ප්‍රමුඛතාව:</strong> Emergency Fund එකක් සහ Insurance මඟින් මූල්‍ය ආරක්ෂාව (Step 2) තහවුරු කිරීම.</span>
+                            </li>
+                            <li>
+                                <span class="t-badge b-3">3</span>
+                                <span><strong>තෙවන ප්‍රමුඛතාව:</strong> සමාජීය අවශ්‍යතා (Step 3) සහ ආත්ම අභිමානීය (Step 4) වියදම් පාලනයකින් යුතුව ඉටුකර ගැනීම.</span>
+                            </li>
+                            <li>
+                                <span class="t-badge b-5">5</span>
+                                <span><strong>අවසාන ඉලක්කය:</strong> මූල්‍ය නිදහස (Financial Freedom) ලබාගෙන ස්වයං පූර්ණත්වය (Step 5) කරා ළඟා වීම.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="buddhist-teaser-section">
+            <div class="buddhist-teaser-card glass-panel">
+                <div class="buddhist-teaser-grid">
+                    <div class="buddhist-img-col">
+                        <img src="buddha_preview.jpg" alt="Budhdhu Hamuduruwo" class="buddha-teaser-img">
+                    </div>
+                    <div class="buddhist-text-col">
+                        <div class="mini-tag gold-tag">SPIRITUAL WISDOM</div>
+                        <h2>බුදුදහම සහ මූල්‍ය කළමනාකරණය</h2>
+                        <p class="buddhist-excerpt">
+                            "වසර 2500කට පෙර බුදුරජාණන් වහන්සේ සිඟාලෝවාද සූත්‍රය, ව්‍යග්ඝපජ්ජ සූත්‍රය සහ අණන සුඛ සූත්‍රය මගින් පෙන්වා දුන් මූල්‍ය කළමනාකරණය..."
+                        </p>
+                        <div class="buddhist-highlights">
+                            <span>✨ <strong>භෝග විභජන සූත්‍රය:</strong> 4ට බෙදීමේ ආයෝජන ක්‍රමය</span>
+                            <span>✨ <strong>ගිහියාගේ සතුට 4:</strong> අත්ථි, භෝග, අණන, අනවජ්ජ සුඛ</span>
+                        </div>
+                        <a href="buddhism.html" class="buddhist-btn">
+                            සම්පූර්ණ බෞද්ධ මූල්‍ය දේශනාව කියවන්න <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="calculator" class="calc-container">
+            <div class="section-header">
+                <h2>Smart Budget & Investment Allocator</h2>
+                <p>ඔබේ මාසික ආදායම ඇතුළත් කර මූල්‍ය නිදහස කරා යන ගමන සපයා ගන්න.</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

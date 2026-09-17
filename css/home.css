@@ -1,0 +1,376 @@
+/* ==========================================================================
+   MAIN HOME PAGE (home.css) - HIGH-ENERGY PREMIUM EDITION
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;500;600;700;800;900&family=Noto+Serif+Sinhala:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* High-Contrast Dynamic Palette */
+  --bg-home: #f8fafc;
+  --surface-card: rgba(255, 255, 255, 0.7);
+  --border-light: rgba(15, 23, 42, 0.08);
+  --border-gold: rgba(245, 158, 11, 0.4);
+
+  --text-main: #020617;
+  --text-sub: #334155;
+  --text-muted: #64748b;
+
+  --accent-gold: #ea580c;
+  --grad-gold: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ea580c 100%);
+  --grad-dark: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+
+  /* High-Energy Shadows & Glows */
+  --shadow-subtle: 0 10px 30px -10px rgba(2, 6, 23, 0.08);
+  --shadow-hover: 0 25px 50px -12px rgba(2, 6, 23, 0.15);
+  --shadow-gold-glow: 0 10px 30px -5px rgba(234, 88, 12, 0.4);
+
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Global Reset & Smooth Scrolling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.home-page-body {
+  background-color: var(--bg-home);
+  background-image: 
+    radial-gradient(circle at 15% 0%, rgba(251, 191, 36, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 85% 100%, rgba(15, 23, 42, 0.08) 0%, transparent 40%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', 'Noto Sans Sinhala', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.home-container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 1. HERO SECTION - CINEMATIC ENTRANCE                                       */
+/* -------------------------------------------------------------------------- */
+.home-hero {
+  padding: 120px 0 80px 0;
+  text-align: center;
+  position: relative;
+  animation: fadeUp 1s var(--ease-smooth) forwards;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 24px;
+  background: rgba(254, 243, 199, 0.6);
+  backdrop-filter: blur(10px);
+  color: #b45309;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Badge Shine Effect */
+.hero-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+  animation: shine 3s infinite;
+}
+
+.home-hero h1 {
+  font-family: 'Noto Serif Sinhala', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  letter-spacing: -1.5px;
+  color: var(--text-main);
+}
+
+.home-hero h1 span {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.home-hero p {
+  max-width: 680px;
+  margin: 0 auto 48px auto;
+  font-size: 1.2rem;
+  color: var(--text-sub);
+  font-weight: 500;
+}
+
+/* Hero CTA Buttons */
+.hero-cta-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.btn-primary-glow {
+  padding: 16px 36px;
+  background: var(--grad-gold);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.05rem;
+  border-radius: 16px;
+  text-decoration: none;
+  box-shadow: var(--shadow-gold-glow);
+  transition: all 0.4s var(--ease-spring);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary-glow::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, #ea580c 0%, #f59e0b 100%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.btn-primary-glow:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 25px 45px -10px rgba(234, 88, 12, 0.5);
+}
+
+.btn-primary-glow:hover::before {
+  opacity: 1;
+}
+
+.btn-secondary-glass {
+  padding: 16px 36px;
+  background: var(--surface-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 16px;
+  text-decoration: none;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.4s var(--ease-spring);
+}
+
+.btn-secondary-glass:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--text-main);
+  background: #ffffff;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. FEATURE CARDS - HIGH CONTRAST GRID                                      */
+/* -------------------------------------------------------------------------- */
+.features-section {
+  padding: 80px 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.feature-card {
+  padding: 40px 32px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+  border-radius: 28px;
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.5s var(--ease-spring);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--grad-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-smooth);
+}
+
+.feature-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-hover);
+  background: #ffffff;
+  border-color: transparent;
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background: var(--text-main);
+  color: #ffffff;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 25px -5px rgba(2, 6, 23, 0.3);
+  transition: transform 0.4s var(--ease-spring);
+}
+
+.feature-card:hover .feature-icon-wrapper {
+  transform: scale(1.1) rotate(-5deg);
+  background: var(--grad-gold);
+}
+
+.feature-card h3 {
+  font-family: 'Noto Serif Sinhala', serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: var(--text-sub);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.card-link {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-link:hover {
+  gap: 14px;
+  color: var(--accent-gold);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. STATS BANNER - DEEP FOCUS                                               */
+/* -------------------------------------------------------------------------- */
+.stats-banner {
+  margin: 80px 0;
+  padding: 50px;
+  background: var(--grad-dark);
+  border-radius: 32px;
+  color: #ffffff;
+  box-shadow: 0 30px 60px -15px rgba(2, 6, 23, 0.5);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-banner::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.stat-item {
+  position: relative;
+  z-index: 2;
+}
+
+.stat-item h4 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #fbbf24;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+
+.stat-item p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. KEYFRAMES & RESPONSIVE DESIGN                                           */
+/* -------------------------------------------------------------------------- */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  20% { left: 200%; }
+  100% { left: 200%; }
+}
+
+@media (max-width: 1024px) {
+  .feature-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .stats-banner { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .home-hero h1 { font-size: 3rem; }
+}
+
+@media (max-width: 640px) {
+  .home-hero { padding: 80px 0 50px 0; }
+  .feature-grid, .stats-banner { grid-template-columns: 1fr; }
+  .hero-cta-group { flex-direction: column; gap: 16px; }
+  .home-hero h1 { font-size: 2.2rem; }
+  .stats-banner { padding: 40px 24px; }
+}

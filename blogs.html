@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Management And Investment Articles</title>
+    <!-- පට්ට ලස්සන Poppins ෆොන්ට් එක Google එකෙන් -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS ෆයිල් එක ලින්ක් කිරීම -->
+    <link rel="stylesheet" href="blogs.css">
+</head>
+<body>
+
+    <!-- Home එකට යන බටන් එක (Navigation) -->
+    <nav class="navbar">
+        <a href="index.html" class="back-btn">
+            <!-- ඊතලයේ අයිකන් එක (SVG) -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Home
+        </a>
+    </nav>
+
+    <!-- පේජ් එකේ ප්‍රධාන මාතෘකාව -->
+    <header class="page-header">
+        <h1>අපගේ ලිපි (Articles)</h1>
+        <p>මුදල් කළමනාකරණය සහ ආයෝජනය ගැන සරලව ඉගෙන ගනිමු.</p>
+    </header>
+
+    <!-- ලිපි පෙළගස්වන ප්‍රධාන කොටස (මෙහි තමයි අලුත් ලිපි දාන්නේ) -->
+    <main class="blog-container">
+
+        <!-- 1 වෙනි ලිපිය (Blog Card 1) -->
+        <article class="blog-card">
+            <div class="card-image">
+                <!-- ලිපියට අදාළ ෆොටෝ එකක ලින්ක් එක මෙතනට දාන්න -->
+                <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80" alt="Budgeting">
+            </div>
+            <div class="card-content">
+                <span class="card-category">Personal Finance</span>
+                <h2 class="card-title">මසකට රුපියල් 50,000ක් පඩි ගන්න කෙනෙක් අයවැය හදාගන්නේ කොහොමද?</h2>
+                <p class="card-excerpt">ඔබේ මාසික ආදායම නිවැරදිව කළමනාකරණය කරමින්, ඉතිරි කිරීම් වැඩි කරගන්නා ආකාරය පියවරෙන් පියවර ඉගෙන ගනිමු.</p>
+                <a href="article1.html" class="read-more">Read More <span>&rarr;</span></a>
+            </div>
+        </article>
+
+        <!-- 2 වෙනි ලිපිය (Blog Card 2) -->
+        <article class="blog-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80" alt="Stock Market">
+            </div>
+            <div class="card-content">
+                <span class="card-category">Investing</span>
+                <h2 class="card-title">කොටස් වෙළඳපොළේ ආයෝජනය පටන් ගන්න පියවර 4ක්</h2>
+                <p class="card-excerpt">ශ්‍රී ලංකාවේ කොටස් වෙළඳපොළේ (CSE) ආයෝජනය කිරීම ආරම්භ කිරීමට අවශ්‍ය මූලිකම පියවර සහ දැනගත යුතු දේවල්.</p>
+                <a href="article2.html" class="read-more">Read More <span>&rarr;</span></a>
+            </div>
+        </article>
+
+        <!-- නව ලිපියක් දාන්න ඕන නම්, මේ විදිහටම තව <article class="blog-card"> ... </article> කෑල්ලක් මේ යටින් පේස්ට් කරන්න -->
+
+    </main>
+
+    <!-- Footer එක -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <h2 class="footer-logo">MonioLK</h2>
+            <p>Smart money management for everyone.</p>
+            <p class="copyright">&copy; 2026 MonioLK. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

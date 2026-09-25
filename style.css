@@ -168,6 +168,11 @@ h1, h2, h3 {
   font-weight: 700 !important;
 }
 
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
 /* BAR 2 NAV CTA BUTTON */
 .cta-btn-nav,
 .navbar-container button,

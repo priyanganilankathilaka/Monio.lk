@@ -63,12 +63,18 @@ body {
 /* --- Blog Container (ලිපි පෙළගස්වන තැන) --- */
 .blog-container {
     display: grid;
-    /* මොබයිල් ෆෝන් එකේ එකයි, PC එකේ 3ක් විදිහට ඔටෝ හැදෙන Grid එකක් */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* කෙලින්ම පේළියට 2යි */
     gap: 30px;
     padding: 20px 5%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto 60px auto;
+}
+
+/* මොබයිල් ෆෝන් එකෙන් බලද්දී එක පේළියට 1 ගානේ වැටෙන්න මේකත් එකතු කරන්න */
+@media (max-width: 768px) {
+    .blog-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* --- Blog Card (එක් ලිපියක ඩිසයින් එක) --- */
